@@ -51,7 +51,7 @@ if selected_countries:
         filtered_df,
         column_config={
             "年月": st.column_config.DateColumn("年月", format="YYYY/MM"),
-            "単価": st.column_config.NumberColumn("単価", format="¥%d"),
+            "単価": st.column_config.NumberColumn("単価", format="%d"),
             "累計_金額": st.column_config.NumberColumn("累計金額", format="%d"),
             "累計_第2数量": st.column_config.NumberColumn("累計数量", format="%d"),
         },

@@ -12,3 +12,10 @@ def save_to_supabase(df):
             batch,
             on_conflict="year,month,hs_code,country_name"
         ).execute()
+
+# ユニークなHSCodeのリストを取得する
+def get_unique_hsCodeList():
+    supabase = get_admin_client()
+    response = supabase.rpc("get_unique_hs_codes").execute()
+    unique_hs_codes = [item['hs_code'] for item in response.data]
+    return unique_hs_codes
